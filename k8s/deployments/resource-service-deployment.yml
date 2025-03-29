@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resources-deployment
+  namespace: k8s-program
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: resources-ms
+  template:
+    metadata:
+      labels:
+        app: resources-ms
+    spec:
+      containers:
+        - name: resources-ms
+          image: resources-image
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: RESOURCES_DB_URL
+              value: resources-db
+            - name: EUREKA_URI
+              value: eureka-server

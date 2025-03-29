@@ -1,0 +1,16 @@
+# Ignore build directories and compiled files
+*/build/
+*.jar
+*.war
+*.log
+*.class
+.gradle
+
+# Ignore IDE and system files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore dependency directories
+node_modules/
+target/
