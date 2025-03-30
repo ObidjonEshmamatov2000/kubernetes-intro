@@ -20,6 +20,10 @@ spec:
           ports:
             - containerPort: 8080
           env:
+            - name: SONGS_MS_URL
+              value: songs-service
+            - name: SONGS_MS_PORT
+              value: "8081"
             - name: RESOURCES_DB_URL
               value: resources-db
             - name: EUREKA_URI
