@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: resources-ms
-          image: resources-image
+          image: resources-image:1.0.0
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -27,8 +27,10 @@ spec:
             - name: SONGS_MS_URL
               value: songs-ms
             - name: SONGS_MS_PORT
-              value: "8081"
+              value: "8080"
             - name: RESOURCES_DB_URL
               value: resources-db
+            - name: RESOURCES_DB_PORT
+              value: "5432"
             - name: EUREKA_URI
               value: eureka-server

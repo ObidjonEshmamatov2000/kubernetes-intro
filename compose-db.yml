@@ -1,7 +1,7 @@
 # postgres --------------------------------------------------------------------
 services:
   db:
-    image: postgres
+    image: postgres:13.3
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
@@ -12,7 +12,7 @@ services:
 
   # postgres pgAdmin --------------------------------------------------------------------
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:13.3
     volumes:
       - pg-admin:/var/lib/pgadmin
     environment:

@@ -18,7 +18,7 @@ spec:
         - name: resources-db
           image: postgres
           ports:
-            - containerPort: 5433
+            - containerPort: 5432
           env:
             - name: POSTGRES_DB
               value: postgres
