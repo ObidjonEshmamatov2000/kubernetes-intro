@@ -17,8 +17,6 @@ spec:
         - name: resources-ms
           image: resources-image:1.0.0
           imagePullPolicy: Never
-          ports:
-            - containerPort: 8080
           env:
             - name: RESOURCES_MS_NAME
               value: resources-ms

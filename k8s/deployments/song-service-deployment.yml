@@ -16,9 +16,7 @@ spec:
       containers:
         - name: songs-ms
           image: songs-image:1.0.0
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 8081
+          imagePullPolicy: IfNotPresent
           env:
             - name: SONGS_MS_NAME
               value: songs-ms
@@ -29,7 +27,7 @@ spec:
             - name: EUREKA_URI
               value: eureka-server
           volumeMounts:
-            - mountPath: "/mnt/data"
+            - mountPath: /mnt/data
               name: songs-storage
       volumes:
         - name: songs-storage
