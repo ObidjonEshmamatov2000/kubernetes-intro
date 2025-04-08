@@ -17,18 +17,6 @@ spec:
         - name: resources-ms
           image: resources-image:1.0.0
           imagePullPolicy: Never
-          env:
-            - name: RESOURCES_MS_NAME
-              value: resources-ms
-            - name: RESOURCES_MS_PORT
-              value: "8080"
-            - name: SONGS_MS_URL
-              value: songs-ms
-            - name: SONGS_MS_PORT
-              value: "8080"
-            - name: RESOURCES_DB_URL
-              value: resources-db
-            - name: RESOURCES_DB_PORT
-              value: "5432"
-            - name: EUREKA_URI
-              value: eureka-server
+          envFrom:
+            - configMapRef:
+                name: app-config

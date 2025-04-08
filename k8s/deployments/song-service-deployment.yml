@@ -17,15 +17,9 @@ spec:
         - name: songs-ms
           image: songs-image:1.0.0
           imagePullPolicy: IfNotPresent
-          env:
-            - name: SONGS_MS_NAME
-              value: songs-ms
-            - name: SONGS_MS_PORT
-              value: "8080"
-            - name: SONGS_DB_URL
-              value: songs-db
-            - name: EUREKA_URI
-              value: eureka-server
+          envFrom:
+            - configMapRef:
+                name: app-config
           volumeMounts:
             - mountPath: /mnt/data
               name: songs-storage
