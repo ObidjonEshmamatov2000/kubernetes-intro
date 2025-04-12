@@ -36,6 +36,24 @@ spec:
             - name: db-init-resources
               mountPath: /docker-entrypoint-initdb.d
               readOnly: true
+          startupProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 30
+          livenessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 5432
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
       volumes:
         - name: db-init-resources
           configMap:
