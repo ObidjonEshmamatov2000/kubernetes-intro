@@ -5,6 +5,11 @@ metadata:
   namespace: k8s-program
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: resources-ms
@@ -15,7 +20,7 @@ spec:
     spec:
       containers:
         - name: resources-ms
-          image: resources-image:1.0.0
+          image: resources-image:1.0.1
           imagePullPolicy: Never
           envFrom:
             - configMapRef:

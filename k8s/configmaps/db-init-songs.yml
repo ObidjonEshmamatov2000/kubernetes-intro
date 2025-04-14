@@ -13,4 +13,5 @@ data:
       length VARCHAR(255),
       resourceId INT,
       year VARCHAR(4),
+      genre VARCHAR(255),
     );

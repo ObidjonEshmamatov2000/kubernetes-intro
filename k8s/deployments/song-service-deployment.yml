@@ -5,6 +5,11 @@ metadata:
   namespace: k8s-program
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: songs-ms
@@ -15,7 +20,7 @@ spec:
     spec:
       containers:
         - name: songs-ms
-          image: songs-image:1.0.0
+          image: songs-image:1.0.1
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:

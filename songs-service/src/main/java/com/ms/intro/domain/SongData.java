@@ -1,13 +1,14 @@
 package com.ms.intro.domain;
 
-import com.ms.intro.dto.SongDto;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import java.util.Objects;
 
 @Entity
 @Table(name = "songs")
@@ -38,4 +39,7 @@ public class SongData {
 
     @Column(nullable = true)
     String year;
+
+    @Column(nullable = true)
+    String genre;
 }
