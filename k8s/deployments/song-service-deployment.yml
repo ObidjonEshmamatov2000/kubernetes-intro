@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
-                name: app-config
+                name: songs-app-config
           volumeMounts:
             - mountPath: /mnt/data
               name: songs-storage

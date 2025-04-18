@@ -1,18 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-config
+  name: resources-app-config
   namespace: k8s-program
 data:
-  SONGS_MS_URL: songs-ms
-  SONGS_MS_NAME: songs-ms
-  SONGS_MS_PORT: "8080"
-
   RESOURCES_MS_NAME: resources-ms
   RESOURCES_MS_PORT: "8080"
-
-  SONGS_DB_URL: songs-db
-  SONGS_DB_PORT: "5432"
+  SONGS_MS_URL: songs-ms
+  SONGS_MS_PORT: "8080"
 
   RESOURCES_DB_URL: resources-db
   RESOURCES_DB_PORT: "5432"

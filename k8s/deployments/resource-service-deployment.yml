@@ -20,11 +20,11 @@ spec:
     spec:
       containers:
         - name: resources-ms
-          image: resources-image:1.0.1
+          image: resources-image:1.0.0
           imagePullPolicy: Never
           envFrom:
             - configMapRef:
-                name: app-config
+                name: resources-app-config
           startupProbe:
             httpGet:
               path: /actuator/health

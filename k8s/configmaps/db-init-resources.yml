@@ -6,6 +6,7 @@ metadata:
 data:
   resource-init.sql: |
     CREATE TABLE IF NOT EXISTS resources (
-      id SERIAL PRIMARY KEY,
-      blob BIGINT NOT NULL
+      id SERIAL NOT NULL,
+      blob BYTEA,
+      PRIMARY KEY (id)
     );

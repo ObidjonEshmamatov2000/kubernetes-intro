@@ -11,7 +11,6 @@ import com.ms.intro.mapper.SongDtoToDomainMapper;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -32,6 +31,7 @@ public class SongController {
     public SongDto getSongMetadataByResourceId(@PathVariable("id") int id) {
         SongData song = songRepo.findByResourceId(id)
                 .orElseThrow(() -> new NotFoundSongDataException("File info on id '" + id + "' does not exist!"));
+        song.setGenre("updated");
         return SongDtoToDomainMapper.INSTANCE.songToCarDto(song);
     }
 
