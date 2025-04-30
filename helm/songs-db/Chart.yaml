@@ -1,0 +1,5 @@
+apiVersion: v2
+name: songs-db
+description: A Helm chart for songs-db
+version: 0.1.0
+appVersion: "1.0"

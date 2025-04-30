@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMapName }}
+  namespace: {{ .Values.namespace }}
+data:
+  SONGS_MS_NAME: {{ .Values.config.songsMsName }}
+  SONGS_MS_PORT: "{{ .Values.config.songsMsPort }}"
+  SONGS_DB_URL: {{ .Values.config.dbUrl }}
+  SONGS_DB_PORT: "{{ .Values.config.dbPort }}"
+  EUREKA_URI: {{ .Values.config.eurekaUri }}

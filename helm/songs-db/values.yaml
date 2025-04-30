@@ -1,0 +1,23 @@
+namespace: k8s-program
+
+service:
+  port: 5432
+  targetPort: 5432
+  clusterIP: None
+
+statefulset:
+  replicas: 1
+  image:
+    repository: postgres
+    tag: "13"
+  volume:
+    name: postgres-storage
+    storage: 1Gi
+    accessMode: ReadWriteOnce
+    storageClass: hostpath
+    mountPath: /var/lib/postgresql/data
+
+db:
+  initConfigMap: db-init-songs
+  databaseName: postgres
+

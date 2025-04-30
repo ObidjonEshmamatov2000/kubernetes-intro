@@ -1,0 +1,5 @@
+apiVersion: v2
+name: resources-db
+description: A Helm chart for resources-db
+version: 0.1.0
+appVersion: "1.0"

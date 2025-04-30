@@ -1,0 +1,43 @@
+replicaCount: 2
+namespace: k8s-program
+
+containerName: songs-ms
+
+image:
+  repository: songs-image
+  tag: "1.0.1"
+  pullPolicy: IfNotPresent
+
+configMapName: songs-app-config
+
+volume:
+  name: songs-storage
+  mountPath: /mnt/data
+  claimName: songs-pvc
+
+service:
+  type: NodePort
+  port: 8080
+  targetPort: 8080
+  nodePort: 30081
+
+config:
+  songsMsName: songs-ms
+  songsMsPort: "8080"
+  dbUrl: songs-db
+  dbPort: "5432"
+  eurekaUri: eureka-server
+
+pv:
+  name: songs-pv
+  storage: 1Gi
+  accessMode: ReadWriteOnce
+  reclaimPolicy: Retain
+  storageClass: manual
+  path: /mnt/data/songs
+
+pvc:
+  name: songs-pvc
+  accessMode: ReadWriteOnce
+  storage: 1Gi
+  storageClass: manual
