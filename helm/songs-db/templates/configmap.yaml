@@ -11,7 +11,7 @@ data:
       artist VARCHAR(255),
       album VARCHAR(255),
       length VARCHAR(255),
-      resourceId INT,
+      resource_id INT,
       year VARCHAR(4),
       genre VARCHAR(255)
     );

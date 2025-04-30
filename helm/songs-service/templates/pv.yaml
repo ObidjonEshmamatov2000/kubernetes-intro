@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.pv.name }}
   labels:
     app.kubernetes.io/managed-by: Helm
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.Namespace }}
 spec:
   capacity:
     storage: {{ .Values.pv.storage }}
