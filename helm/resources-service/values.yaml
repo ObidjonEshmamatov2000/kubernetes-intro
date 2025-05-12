@@ -11,10 +11,8 @@ image:
 configMapName: resources-app-config
 
 service:
-  type: ClusterIP
   port: 8080
   targetPort: 8080
-  nodePort: 30080
 
 config:
   resourcesMsName: resources-ms

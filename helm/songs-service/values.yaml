@@ -16,10 +16,8 @@ volume:
   claimName: songs-pvc
 
 service:
-  type: ClusterIP
   port: 8080
   targetPort: 8080
-  nodePort: 30081
 
 config:
   songsMsName: songs-ms

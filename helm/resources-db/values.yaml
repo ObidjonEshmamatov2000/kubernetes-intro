@@ -3,7 +3,6 @@ namespace: k8s-program
 service:
   port: 5432
   targetPort: 5432
-  clusterIP: None
 
 statefulset:
   replicas: 1
