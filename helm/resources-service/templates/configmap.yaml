@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.configMapName }}
   namespace: {{ .Release.Namespace }}
   labels:
-      {{- include "resources-service.labels" . | nindent 4 }}
+    app: resources-service
 data:
   RESOURCES_MS_NAME: {{ .Values.config.resourcesMsName }}
   RESOURCES_MS_PORT: "{{ .Values.config.resourcesMsPort }}"

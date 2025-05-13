@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.configMapName }}
   namespace: {{ .Release.Namespace }}
   labels:
-    { { - include "songs-service.labels" . | nindent 4 } }
+    app: songs-service
 data:
   SONGS_MS_NAME: {{ .Values.config.songsMsName }}
   SONGS_MS_PORT: "{{ .Values.config.songsMsPort }}"
