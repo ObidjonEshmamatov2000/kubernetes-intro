@@ -4,13 +4,16 @@ metadata:
   name: {{ .Release.Name }}-ingress
   namespace: {{ .Release.Namespace }}
   annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  host:
+  ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /songs(/|$)(.*)
-            pathType: Prefix
+          - path: /songs-ms(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: {{ .Release.Name }}

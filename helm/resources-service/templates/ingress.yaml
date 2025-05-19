@@ -4,15 +4,23 @@ metadata:
   name: {{ .Release.Name }}-ingress
   namespace: {{ .Release.Namespace }}
   annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  host:
+  ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /resources(/|$)(.*)
-            pathType: Prefix
+          - path: /resource-ms(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: {{ .Release.Name }}
                 port:
                   number: {{ .Values.service.port }}
+#  defaultBackend:
+#    service:
+#      name: {{ .Release.Name }}
+#      port:
+#        number: {{ .Values.service.port }}
